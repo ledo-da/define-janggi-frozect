@@ -15,58 +15,81 @@
   </style>
 </head>
 <body>
-  <h1>📚 1-1 반 시간표</h1>
+  <h1>📚 우리 반 시간표</h1>
   <table>
     <tr>
       <th>교시</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
     </tr>
-    <tr><td>1교시</td><td>국어</td><td>수학</td><td>영어</td><td>체육</td><td>사회</td></tr>
-    <tr><td>2교시</td><td>영어</td><td>과학</td><td>미술</td><td>수학</td><td>국어</td></tr>
-    <tr><td>3교시</td><td>국어</td><td>수학</td><td>영어</td><td>체육</td><td>사회</td></tr>
-    <tr><td>4교시</td><td>국어</td><td>수학</td><td>영어</td><td>체육</td><td>사회</td></tr>
-    <tr><td>5교시</td><td>국어</td><td>수학</td><td>영어</td><td>체육</td><td>사회</td></tr>
-    <tr><td>6교시</td><td>국어</td><td>수학</td><td>영어</td><td>체육</td><td>사회</td></tr>
-    <tr><td>7교시</td><td>국어</td><td>수학</td><td>영어</td><td>체육</td><td>사회</td></tr>
+<tr><td>1교시</td><td>통사</td><td>자율</td><td>통과</td><td>통사</td><td>국사</td></tr>
+    <tr><td>2교시</td><td>통과</td><td>정보</td><td>체육</td><td>과탐</td><td>공수</td></tr>
+    <tr><td>3교시</td><td>공수</td><td>공수</td><td>미술</td><td>미술</td><td>통사</td></tr>
+    <tr><td>4교시</td><td>국사</td><td>국사</td><td>공국</td><td>공영</td><td>정보</td></tr>
+    <tr><td>5교시</td><td>공영</td><td>통과</td><td>창체</td><td>공수</td><td>통과</td></tr>
+    <tr><td>6교시</td><td>공영</td><td>공국</td><td>창체</td><td>정보</td><td>체육</td></tr>
+    <tr><td>7교시</td><td>공국</td><td>통사</td><td>자습</td><td>공영</td><td>공국</td></tr>
   </table>
 
   <h2>📝 수행평가 캘린더</h2>
   <div id='calendar'></div>
 
   <script>
+    const STORAGE_KEY = 'performanceAssessmentEvents';
+    function loadEvents() {
+        const json = localStorage.getItem(STORAGE_KEY);
+        return json ? JSON.parse(json) : [];
+    }
+
+    function updateLocalStorage(calendar) {
+        const allEvents = calendar.getEvents().map(event => ({
+            id: event.id,
+            title: event.title,
+            start: event.startStr
+        }));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(allEvents));
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
-      const calendarEl = document.getElementById('calendar');
-      const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        editable: false,
-        selectable: true,
+        const calendarEl = document.getElementById('calendar');
+        const initialEvents = loadEvents();
 
-        dateClick: function(info) {
-          const title = prompt("수행평가 내용을 입력하세요:");
-          if (!title) return;
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            editable: false,
+            selectable: true,
+            // 로드한 초기 이벤트 목록을 캘린더에 설정
+            events: initialEvents,
 
+            // 새 이벤트 추가 시
+            dateClick: function(info) {
+                const title = prompt("수행평가 내용을 입력하세요:");
+                if (!title) return;
 
-          calendar.addEvent({
-            id: Date.now().toString(),
-            title: title,
-            start: info.dateStr
-          });
-        },
-       
-        eventClick: function(info) {
-          const action = prompt(
-            `수행평가 수정/삭제:\n- 수정하려면 새 내용 입력\n- 삭제하려면 '삭제' 입력`
-          );
-          if (!action) return;
-         
-          if (action.toLowerCase() === '삭제') {
-            info.event.remove(); // 캘린더에서 이벤트 제거
-          } else {
-            info.event.setProp('title', action); // 이벤트 제목 업데이트
-          }
-        }
-      });
+                calendar.addEvent({
+                    id: Date.now().toString(),
+                    title: title,
+                    start: info.dateStr
+                });
+                updateLocalStorage(calendar);
+            },
+           
+            eventClick: function(info) {
+                const action = prompt(
+                    `수행평가 수정/삭제:\n- 수정하려면 새 내용 입력\n- 삭제하려면 '삭제' 입력`
+                );
+                if (!action) return;
+               
+                if (action.toLowerCase() === '삭제') {
+                    info.event.remove(); // 캘린더에서 이벤트 제거
+                } else {
+                    info.event.setProp('title', action); // 이벤트 제목 업데이트
+                }
+               
+                // 이벤트 변경 후 저장소 업데이트
+                updateLocalStorage(calendar);
+            }
+        });
 
-      calendar.render();
+        calendar.render();
     });
   </script>
 </body>
