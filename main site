@@ -1,1 +1,182 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디파인 JANG GI 프로젝트_JH</title>
+    
+    <style>
+        body {
+            font-family: 'Malgun Gothic', 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        #siteList {
+            list-style: none;
+            padding: 0;
+            display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+
+        .site-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+    
+        .site-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .site-title {
+            font-weight: 600;
+            color: #34495e;
+            flex-grow: 1;
+            font-size: 1.1em;
+        }
+
+
+        .site-item a {
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        .site-item a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>컴시간 알리미 셧다운 기원 N일차</h1>
+        <ul id="siteList">
+            
+            <li>
+                <span class="site-title">1학년 1반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-1.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 2반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-2.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 3반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-3.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 4반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-4.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 5반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-5.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 6반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-6.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 7반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-7.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">1학년 8반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule1-8.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 1반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-1.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 2반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-2.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 3반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-3.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 4반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-4.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 5반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-5.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 6반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-6.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 7반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-7.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">2학년 8반</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule2-8.html" target="_blank">LET'S GO</a>
+            </li>
+
+            <li>
+                <span class="site-title">3학년 전체</span>
+                <a href="https://ledo-da.github.io/define-janggi-frozect/schedule3-1.html" target="_blank">LET'S GO</a>
+            </li>
+            
+            </ul>
+    </div>
+</body>
+</html>
